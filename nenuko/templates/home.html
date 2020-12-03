@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Local Library Home</h1>
+
+  <p>Welcome to <em>LocalLibrary</em>, Django website </p>
+
+{% if user.is_authenticated %}
+  <h3>Hola! {{ user.username }}</h3>
+ 
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Login</a>
+{% endif %}
+{% endblock %}

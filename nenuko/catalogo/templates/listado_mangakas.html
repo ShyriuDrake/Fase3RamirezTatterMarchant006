@@ -1,0 +1,40 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+<h2> Listado de Mangakas </h2>
+
+    <table>
+        <tr>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp; Primer nombre &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th></th>
+            <th>Apellido &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th></th>
+            <th>Fecha de nacimiento &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th></th>
+            <th>Fecha de muerte &nbsp;&nbsp;&nbsp;&nbsp;</th> &nbsp;
+
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Opciones</th>
+        </tr>
+
+            {% for m in mangakas %}
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{m.primer_nombre}}</td>
+                <td></td>
+                <td>{{m.apellido}}</td>
+                <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td>{{m.fecha_nacimiento}}</td>
+                <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td>{{m.fecha_muerte}}</td>
+                <th>
+                    <a href="{% url 'modificar_mangaka' m.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Modificar</a>
+                    <a href="{% url 'eliminar_mangaka' m.id %}">&nbsp;&nbsp;&nbsp;Eliminar</a>
+                </th>
+            </tr>
+            {%endfor%}
+    </table>        
+
+{% endblock %}
+
+
+

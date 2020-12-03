@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+<h2> Listado de Figuras </h2>
+
+    <table>
+        <tr>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp; Titulo &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th></th>
+            <th>Marca &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Opciones</th>
+        </tr>
+
+            {% for f in figuras %}
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{f.titulo}}</td>
+                <td></td>
+                <td>{% for marca in f.marca.all %} {{ marca }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                <th>
+                    <a href="{% url 'modificar_figura' f.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Modificar</a>
+                    <a href="{% url 'eliminar_figura' f.id %}">&nbsp;&nbsp;&nbsp;Eliminar</a>
+                </th>
+            </tr>
+            {%endfor%}
+    </table>        
+
+{% endblock %}

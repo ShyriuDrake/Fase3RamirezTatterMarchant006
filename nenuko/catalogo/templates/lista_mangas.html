@@ -1,0 +1,37 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+<h2> Listado de Mangas </h2>
+
+    <table>
+        <tr>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp; Titulo &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th></th>
+            <th>Mangaka &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th></th>
+            <th>Volumen &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th></th>
+            <th>Genero &nbsp;&nbsp;&nbsp;&nbsp;</th> &nbsp;
+
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Opciones</th>
+        </tr>
+
+            {% for m in manga %}
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{m.titulo}}</td>
+                <td></td>
+                <td>{{m.mangaka}}</td>
+                <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td>{{m.volumen}}</td>
+                <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td>{% for genero in m.genero.all %} {{ genero }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                <th>
+                    <a href="{% url 'modificar_mangas' m.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Modificar</a>
+                    <a href="{% url 'eliminar_mangas' m.id %}">&nbsp;&nbsp;&nbsp;Eliminar</a>
+                </th>
+            </tr>
+            {%endfor%}
+    </table>        
+
+{% endblock %}

@@ -2,16 +2,16 @@
 
 
 {% block content %}
-<div class="margen">
-  <h1>Local Library Home</h1>
+<div class="masthead container d-flex align-items-center flex-column">
+  <h1></h1>
 
-    <p>Welcome to <em>LocalLibrary</em>, Django website </p>
+    <h4 style="color: black;">Sesión cerrada con éxito </h1>
 
-    <h2>Login</h2>
+    <h4>Desea ingresar con otra cuenta?</h2>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Login</button>
+      <button type="submit">Ingresar</button>
     </form>
 </div>
 {% endblock %}

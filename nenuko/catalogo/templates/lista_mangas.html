@@ -26,10 +26,12 @@
                 <td>{{m.volumen}}</td>
                 <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
                 <td>{% for genero in m.genero.all %} {{ genero }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                {% if user.is_authenticated  %}{% if user.is_staff %}
                 <th>
                     <a href="{% url 'modificar_mangas' m.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Modificar</a>
                     <a href="{% url 'eliminar_mangas' m.id %}">&nbsp;&nbsp;&nbsp;Eliminar</a>
                 </th>
+                {% else %}{% endif %}{% else %}{% endif %} 
             </tr>
             {%endfor%}
     </table>        

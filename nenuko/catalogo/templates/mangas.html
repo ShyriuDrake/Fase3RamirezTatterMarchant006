@@ -27,6 +27,16 @@
           <br>
 
           <div class="container-fluid">
+
+
+            {% if user.is_authenticated  %}{% if user.is_staff %}
+
+          <a class="btn btn-primary" href="{% url 'crear_mangas' %}" style="float: left; font-size: 14px;">Agregar Manga <span class="glyphicon glyphicon-plus"></span></a>
+          {% else %}{% endif %}{% else %}{% endif %} 
+          <a class="btn btn-primary" href="{% url 'listado_mangas' %}" style="float: right; font-size: 14px;">Editar Mangas <span class="glyphicon glyphicon-plus"></span></a>
+
+
+
             <h1>Mangas Disponibles</h1>
             {% for m in manga %}
             <div class="row">

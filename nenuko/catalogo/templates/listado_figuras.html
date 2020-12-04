@@ -17,10 +17,12 @@
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{f.titulo}}</td>
                 <td></td>
                 <td>{% for marca in f.marca.all %} {{ marca }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                {% if user.is_authenticated  %}{% if user.is_staff %}
                 <th>
                     <a href="{% url 'modificar_figura' f.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Modificar</a>
                     <a href="{% url 'eliminar_figura' f.id %}">&nbsp;&nbsp;&nbsp;Eliminar</a>
                 </th>
+                {% else %}{% endif %}{% else %}{% endif %} 
             </tr>
             {%endfor%}
     </table>        

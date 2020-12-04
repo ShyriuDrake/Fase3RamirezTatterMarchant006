@@ -27,7 +27,15 @@
 
           <br>
           <div class="container-fluid"> 
-            <h1>Productos Disponibles</h1>
+
+
+            {% if user.is_authenticated  %}{% if user.is_staff %}
+
+          <a class="btn btn-primary" href="{% url 'crear_figuras' %}" style="float: left; font-size: 14px;">Agregar Figuras <span class="glyphicon glyphicon-plus"></span></a>
+          {% else %}{% endif %}{% else %}{% endif %} 
+          <a class="btn btn-primary" href="{% url 'listado_figuras' %}" style="float: right; font-size: 14px;">Editar Figuras <span class="glyphicon glyphicon-plus"></span></a>
+           
+          <h1>Productos Disponibles</h1>
             {% for f in figuras %}
               <div class="row">
                 <div class="col-lg-2">

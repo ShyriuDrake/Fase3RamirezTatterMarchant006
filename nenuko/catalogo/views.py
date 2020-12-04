@@ -28,7 +28,7 @@ def figuras(request):
     }
     return render(
         request,
-        'figuras.html',
+        'figuras.html', data
     )
 def registro(request):
     return render(

@@ -23,6 +23,7 @@ class Manga(models.Model):
 	descripcion = models.TextField(max_length=1000)
 	volumen = models.CharField('Volumen', max_length=13)
 	genero = models.ManyToManyField(Genero)
+	imagen = models.ImageField(null=True, blank=True)
     
 	def __str__(self):
 		return self.titulo
@@ -35,7 +36,7 @@ class Mangaka(models.Model):
 	"""Model representing an Mangaka."""
 	primer_nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
-	fecha_nacimiento = models.DateField()
+	fecha_nacimiento = models.DateField(null=True, blank=True)
 	fecha_muerte = models.DateField( null=True, blank=True)
 	def __str__(self):
 		"""String for representing the Model object."""
@@ -45,6 +46,7 @@ class Figuras(models.Model):
 	titulo = models.CharField(max_length=200)
 	descripcion = models.TextField(max_length=1000)
 	marca = models.ManyToManyField(Marca)
+	imagen = models.ImageField(null=True, blank=True)
     
 	def __str__(self):
 		return self.titulo

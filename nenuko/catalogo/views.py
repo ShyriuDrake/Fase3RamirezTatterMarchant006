@@ -13,13 +13,19 @@ def index(request):
         'index.html',
     )
 def mangas(request):
+    data = {
+        'manga':Manga.objects.all()
+    }
 
     return render(
         request,
-        'mangas.html',
+        'mangas.html', data
        
     )
 def figuras(request):
+    data = {
+        'figuras':Figuras.objects.all()
+    }
     return render(
         request,
         'figuras.html',
@@ -91,7 +97,7 @@ def crear_mangas(request):
     }
 
     if request.method == 'POST':
-        formulario = MangaForm(request.POST)
+        formulario = MangaForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Se ha creado un manga"
@@ -107,11 +113,11 @@ def modificar_mangas(request, id):
     }
 
     if request.method == 'POST':
-        formulario = MangaForm(data=request.POST, instance=manga)
+        formulario = MangaForm(data=request.POST, instance=manga, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] ='Modificado Correctamente'
-            data['form'] = formulario
+            data['form'] = MangaForm(instance=Manga.objects.get(id=id))
     return render (
         request,
         'modificar_manga.html',data
@@ -137,7 +143,7 @@ def crear_figuras(request):
     }
 
     if request.method == 'POST':
-        formulario = FigurasForm(request.POST)
+        formulario = FigurasForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Se ha creado un mangaka"
@@ -153,11 +159,11 @@ def modificar_figura(request, id):
     }
 
     if request.method == 'POST':
-        formulario = FigurasForm(data=request.POST, instance=figuras)
+        formulario = FigurasForm(data=request.POST, instance=figuras, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] ='Modificado Correctamente'
-            data['form'] = formulario
+            data['form'] = FigurasForm(instance=Figuras.objects.get(id=id))
     return render (
         request,
         'modificar_figura.html',data

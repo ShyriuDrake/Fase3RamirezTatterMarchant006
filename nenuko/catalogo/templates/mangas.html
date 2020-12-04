@@ -25,15 +25,17 @@
             </div>
           </div>
           <br>
+
           <div class="container-fluid">
             <h1>Mangas Disponibles</h1>
+            {% for m in manga %}
             <div class="row">
               <div class="col-lg-2">
                 <div class="card">
-                  <img class="card-img-top" src="{% static 'images/SpyxFamily.png' %}">
+                  <img class="card-img-top" src="{{m.imagen.url}}">
                   <div class="card-body">
                     <div class="centro">
-                      <h4 class="card-title">Spy x Family</h4>
+                      <h4 class="card-title">{{m.titulo}}</h4>
                       <p2 class="card-text"> $3.000 </p2>
                       <br>
                       <a href="#" class="btn btn-primary">Agregar al Carrito</a>
@@ -41,79 +43,10 @@
                   </div>
                 </div>
               </div>
-            <br>
-            <div class="col-lg-2">      
-              <div class="card">
-                <img class="card-img-top" src="{% static 'images/ShingekiNoKyojin.jpg' %}" style="max-width:110%;height:auto;" >            
-                <div class="card-body">
-                  <div class="centro">
-                    <h4 class="card-title">Shingeki no Kyojin</h4>
-                    <p2 class="card-text"> $3.000 </p2>
-                    <br>
-                    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="col-lg-2">      
-              <div class="card">
-                <img class="card-img-top" src="{% static 'images/Bungou.png' %}" >        
-                <div class="card-body">
-                  <div class="centro">
-                    <h4 class="card-title">Bungou Stray Dogs</h4>
-                    <p2 class="card-text"> $3.000 </p2>
-                    <br>
-                    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="col-lg-2">      
-              <div class="card">
-                <img class="card-img-top" src="{% static 'images/Kimetsu.png' %}">            
-                <div class="card-body">
-                  <div class="centro">
-                    <h4 class="card-title">Kimetsu no Yaiba</h4>
-                    <p2 class="card-text"> $3.000 </p2>
-                    <br>
-                    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-                  </div>
-                </div>
             </div>
           </div>
-          <br>
-          <div class="col-lg-2">      
-            <div class="card">
-              <img class="card-img-top" src="{% static 'images/DetectiveConan.png' %}">            
-              <div class="card-body">
-                <div class="centro">
-                  <h4 class="card-title">Detective Conan</h4>
-                  <p2 class="card-text"> $3.000 </p2>
-                  <br>
-                  <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="col-lg-2">      
-            <div class="card">
-              <img class="card-img-top" src="{% static 'images/OnePiece.png' %}">            
-              <div class="card-body">
-                <div class="centro">
-                  <h4 class="card-title">One Piece</h4>
-                  <p2 class="card-text"> $3.000 </p2>
-                  <br>
-                  <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <br>
+            <br>
+            {% endfor %}
     </body>
 </html>
 {% endblock %}

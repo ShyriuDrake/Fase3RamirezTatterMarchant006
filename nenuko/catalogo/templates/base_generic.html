@@ -38,6 +38,15 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'figuras' %}">Figuras</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+                </li>
+                {% endif %}
               </ul>
             </div>
         </nav>
@@ -52,10 +61,36 @@
           
     {% block content %}{% endblock %}
     <br>
-    <footer>
-      <x class="x" style="margin-left: 300px; margin-right: 300px; font-size: 30px; background-color:#fcd2e6;">&copy; 2019-2020 Nenuko´s Store® UwU. </x>
-    </footer>
-    </body>
-   
+        <br>
+        <!--Footer-->
+        <footer class="footer text-center" style="background-color: #fcd2e6;" style="margin-top: 60px;">
+          <div class="container">
+            <div class="row">
+              <!--Direccion-->
+              <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-4">Dirección: </h4>
+                <p class="lead mb-0"> Esq Blanca 501
+                  <br>Maipú, Región Metropolitana</p>
+              </div>
+              <!--Icono-->
+              <div class="col-lg-4 mb-5 mb-lg-0">
+                <a href="{% url 'index' %}"><img src="{% static 'images/logo1.png' %}" alt=""></a>
+              </div>
+              <!--Contacto-->
+              <div>
+                <h4 class="text-uppercase">Contacto</h4>
+                <p class="lead mb-0"> Fono: +56992371653</p>
+              </div>
+            </div>
+          </div>
+        </footer>
 
+        <!-- Copyright Section -->
+        <section class="copyright py-4 text-center text-white">
+          <div class="container">
+            <h6>Copyright &copy; Nenuko Store 2020 </h6>
+          </div>
+        </section>
+
+    </body>
 </html>

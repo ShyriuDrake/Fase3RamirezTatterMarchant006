@@ -1,13 +1,22 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-<h1>Local Library Home</h1>
 
-  <p>Welcome to <em>LocalLibrary</em>, Django website </p>
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+<div class="masthead container d-flex align-items-center flex-column">
+  <div style="background-color: #fcd2e6">
+    <h2>Bienvenido a <em>Nenuko's Store</em> </p>
+  </div>
+  <p style="margin-top: 20px;">Ingrese sus datos: </h2>
+</div>
+<br>
+  <div class="masthead container d-flex align-items-center flex-column">
+    <form method="post">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+        <button type="submit">Login</button>
+    </form>
+  </div>
+
 {% endblock %}

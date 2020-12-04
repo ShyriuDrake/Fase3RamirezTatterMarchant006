@@ -1,0 +1,7 @@
+ADMIN
+Usuario: Ivan
+Contraseña: hakuna123
+
+Staff
+Usuario: neko
+Contraseña: cachupin

@@ -3,85 +3,277 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Tiendita Otaku</title>
-    <meta name="viewport" content="width=device-width">
-  
-    {% load static %}
-    <link rel="styleSheet" href="{% static 'css/estilos.css' %}">
-    <!--Carrousel-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  
-  </head>
-  <body>
-    <!--Logo Tienda-->
-    <div class="container-fluid">
+
+<head>
+  {% load static %}
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
-        <div class="col-3"  style="background-color:#fcd2e6">
-          <h1>
-            <img class="img1" src="{% static 'images/images.png' %}" style="max-width:40%;height:auto;"></h1> 
-        </div>
-        <div class="col-6"  style="background-color:#fcd2e6">
-          <h1 style="font-size:2.8vw"><strong>Bienvenido a Nenuko´s Store </strong></h1>
-        </div>
-        <div class="col-3"  style="background-color:#fcd2e6">
-          <h1><img class="img2" src="{% static 'images/images2.png' %}"  style="max-width:40%;height:auto;"></h1>
+        <div class="col-lg-8">
+          <h1>Bienvenido a <span>RecipeLife</span></h1>
+
+          <div class="btns">
+            <a href="#menu" class="btn-menu animated fadeInUp scrollto">Recetas</a>
+            <!--<a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Añadir Receta</a>-->
+          </div>
         </div>
       </div>
     </div>
-    <br>
+  </section><!-- End Hero -->
 
 
+  <main id="main">
 
-      <div>
-      
-          <div id="carousel1" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel1" data-slide-to="1"></li>
-              <li data-target="#carousel1" data-slide-to="2"></li>
-            </ol>
-            <!-- diapositivas -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="{% static 'images/Inicio.png' %}" alt="">
-                  <div class="carousel-caption">
-                    <h3> <strong> Somos Nenuko´s Store </strong></h3>
-                    <p> <strong> Una tienda 100% online con envios a todo Chile</strong></p>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-img">
+              <img src="{% static 'img/Pastelito.jpg' %}" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3><i>"La comida más rica es la que se hace en casa"</i></h3>
+            <p class="font-italic">
+              RecipeLife es una página web orientada a la búsqueda y creación de recetas, además de promocionar un sitio
+              en el cual el usuario podrá encontrar los ingredientes necesarios para la preparación al menor precio.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>¿Por qué nosotros?</h2>
+          <p>¿Por qué elegirnos?</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box" data-aos="zoom-in" data-aos-delay="100">
+              <span>01</span>
+              <h4>Barato</h4>
+              <p>En nuestro sitio encontrara los ingredientes más baratos para sus recetas.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="200">
+              <span>02</span>
+              <h4>Rápido</h4>
+              <p>No necesitará comparar precios en otros lados, ya que nuestra página lo hará por usted.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="300">
+              <span>03</span>
+              <h4> Intuitivo</h4>
+              <p>No necesitaras tutoriales, ya que nuestra pagina es muy intuitiva y facil de usar.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+
+    <!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Recetas</h2>
+          <p>Recetas mejor puntuadas</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-toggle="tab" href="#tab-1">Ñoquis con salsa pomodoro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-2">Bavarois de frutilla Chileno</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-3">Alfajores de Maicena</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-4">Salmon al horno con verduras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-5">Papas a la Huancaína</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3><i>"Un plato tipico de la lejana Italia"</i></h3>
+                    <p class="font-italic">Los Gnocchis o ñoquis en castellano, son un tipo de pasta originaria de
+                      Italia, donde se elaboran principalmente con patata.
+                      Es un plato muy típico de la gastronomía transalpina aunque también está muy presente en otras
+                      cocinas como la argentina, llevados
+                      por los italianos que emigraron al otro lado del Atlántico.</p>
                   </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/ñoqui.jpg' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
               </div>
-              <div class="carousel-item">
-                <a href=Manga  target="_self" > <!-- Agregar "manga.html" -->
-                  <img class="d-block w-100" src="{% static 'images/manga.png' %}" alt=""></a>
-                  <div class="carousel-caption">
-                    <h3><strong> Mangas y Novelas </strong></h3>
-                    <p> <strong>Los traemos a pedido.</strong></p>
+              <div class="tab-pane" id="tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3><i>"Otra deliciosa forma de comer frutillas"</i></h3>
+                    <p class="font-italic">Una receta clásica, modernizada. El bavarois de frutilla es un postre
+                      muy común en las casas chilenas. En esta receta en vez de usar gelatina de frutilla,
+                      use frutillas de verdad y gelatina sin sabor. Como el dulzor de la fruta varía, les recomiendo
+                      probar la mezcla antes de agregarle la gelatina para verificar que este del sabor apropiado.</p>
                   </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/Fruti.jpg' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
               </div>
-              <div class="carousel-item">
-                <a href="Figuras" target="_self"> <!-- Agregar "Figuras.html" -->
-                  <img class="d-block w-100" src="{% static 'images/figuras.png' %}" alt=""></a>
-                  <div class="carousel-caption">
-                    <h3><strong>Figuras </strong></h3>
-                    <p><strong>Pura calidad traidas directamente de Japón.</strong></p>
+              <div class="tab-pane" id="tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3><i>"Si te gusta lo dulce te recomendamos esto"</i></h3>
+                    <p class="font-italic">Los alfajores en Argentina son un ícono de las golosinas, existen de todos
+                      los sabores
+                      y todas las manera imaginables (chocolate, con fruta, mousse, glaseado, etc) pero hay
+                      uno que es el más tradicional de todos… el “Alfajor de Maicena”!!</p>
                   </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/alfa.jpg' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>"Hay muchos peces en el mar, pero ninguno tan rico como el salmón"</h3>
+                    <p class="font-italic"> El salmon al horno con verduras es una deliciosa manera de preparar este
+                      pescado,
+                      con alto contenido de ácidos grasos Omega 3. Es una receta muy facil de hacer, rapida,
+                      saludable y que apenas conlleva esfuerzo. El horno se encargará de todo.Como resultado,
+                      obtendrás este cotizado pescado azul, acompañado de una deliciosa guarnición de verdura.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/salmon.jpg' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>"Si te gusta la comida internacional prueba estas papas al más puro estilo Peruano"</h3>
+                    <p class="font-italic">El Perú le brindó las papas al mundo. Y este plato a base de papas que se
+                      prepara en Huancayo
+                      es una de las botanas (aperitivos) de las tierras altas del Perú que goza de mayor fama. Es muy
+                      característico de la cocina indígena, debido especialmente al uso del palillo, una hierba
+                      aromática
+                      local que le da un color amarillo brillante a los alimentos y que se puede sustituir con cúrcuma.
+                    </p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/papa.jpg' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
               </div>
             </div>
-          
-            <!-- botones de desplazamiento a izquierda y derecha -->      
-            <a class="carousel-control-prev" href="#carousel1" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel1" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
-  </body>
+        </div>
+
+      </div>
+    </section><!-- End Specials Section -->
+
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contacto</h2>
+          <p>Encuentranos</p>
+        </div>
+      </div>
+
+      <div data-aos="fade-up">
+        <iframe style="border:0; width: 100%; height: 350px;"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.61392082013!2d-70.75462978479909!3d-33.51142058075663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dcd1fe0c7bab%3A0x4d17b82a7ba77488!2sDuoc%20UC%3A%20Sede%20Maipu!5e0!3m2!1ses-419!2scl!4v1619924398374!5m2!1ses-419!2scl"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Ubicación:</h4>
+                <p>Av. Esquina Blanca 501, Maipú, RM, CHL</p>
+              </div>
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>contacto@recipelife.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Llámenos:</h4>
+                <p>+562 7467 7384</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 mt-5 mt-lg-0">
+            <form action="enviarcorreo.php" class="php-email-form" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6 form-group">
+                    <input type="email" class="form-control" placeholder="Tu correo" name="email" required="">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input type="text" class="form-control" placeholder="Tu nombre" name="nombre" required="">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Asunto" name="asunto" required="">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="Escribe tu Mensaje" name="msg"></textarea>
+              </div>
+              <input type="submit" value="Enviar">
+            </form>
+          </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+</body>
+
 </html>
 
 {% endblock %}

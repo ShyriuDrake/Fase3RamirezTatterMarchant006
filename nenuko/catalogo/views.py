@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from . models import Manga, Mangaka, Genero,Figuras,Marca
+from . models import Manga, Mangaka, Genero,Figuras,Marca, Receta
 from django.views import generic
-from .forms import MangakaForm,FigurasForm ,MangaForm
-
+from .forms import MangakaForm,FigurasForm ,MangaForm, RecetaForm
+from django.core.mail import send_mail
+from django.conf import settings
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -12,6 +13,15 @@ def index(request):
         request,
         'index.html',
     )
+def contacto(request):
+    if request.method=="POST":
+        subject=request.POST['asunto']
+        message="Remitente: " + request.POST['email'] + " Nombre: " + request.POST['nombre'] + ' Mensaje: ' + request.POST['msg']
+        email_from=settings.EMAIL_HOST_USER
+        recipent_list=['recipelife379@gmail.com']
+        send_mail(subject,message,email_from,recipent_list)
+    return render(request, "contacto.html")
+
 def mangas(request):
     data = {
         'manga':Manga.objects.all()
@@ -172,4 +182,51 @@ def eliminar_figura(request, id):
     figuras =Figuras.objects.get(id=id)
     figuras.delete()
     return redirect(to="listado_figuras")
+
+
+##Recetas 
+def listado_recetas(request):
+    recetas= Receta.objects.all()
+    data = {
+        'recetas':recetas
+    }
+    return render(
+        request,
+        'listado_recetas.html',data
+    )
+def crear_recetas(request):
+    data = {
+        'form' :RecetaForm()
+    }
+
+    if request.method == 'POST':
+        formulario = RecetaForm(request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = "Se ha creado una receta"
+            return redirect(to="index")
+    return render(
+        request,
+        'nueva_receta.html', data
+    )
+def modificar_recetas(request, id):
+    recetas= Receta.objects.get(id=id)
+    data = {
+        'form':RecetaForm(instance=recetas)
+    }
+
+    if request.method == 'POST':
+        formulario = RecetaForm(data=request.POST, instance=recetas, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] ='Modificado Correctamente'
+            data['form'] = RecetaForm(instance=Receta.objects.get(id=id))
+    return render (
+        request,
+        'modificar_recetas.html',data
+    )
+def eliminar_recetas(request, id):
+    recetas =Receta.objects.get(id=id)
+    recetas.delete()
+    return redirect(to="listado_recetas")
 

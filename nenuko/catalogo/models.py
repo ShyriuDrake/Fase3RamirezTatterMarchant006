@@ -15,6 +15,7 @@ class Marca(models.Model):
     def __str__(self):
         return self.name
 
+
 class Manga(models.Model):
     
 	titulo = models.CharField(max_length=200)
@@ -54,4 +55,25 @@ class Figuras(models.Model):
 	def get_absolute_url(self):
 		"""Returns the url to access a detail record for this manga."""
 		return reverse('figuras-detail', args=[str(self.id)])
+
+class Tipo(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+class Receta(models.Model):
+    
+	titulo = models.CharField(max_length=200)
+	imagen = models.ImageField(null=True, blank=True)
+	ingredientes = models.TextField(max_length=300)
+	tipo = models.ManyToManyField(Tipo)
+	descripcion = models.TextField(max_length=1000)
+		  
+	def __str__(self):
+		return self.titulo
+    
+	def get_absolute_url(self):
+		"""Returns the url to access a detail record for this manga."""
+		return reverse('receta-detail', args=[str(self.id)])
 		

@@ -9,35 +9,18 @@
         <meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row">
-              <div class="col-3"  style="background-color:#fcd2e6">
-                <h1>
-                {% load static %}
-                  <img class="img1" src="{% static 'images/images.png' %}" style="max-width:40%;height:auto;"></h1> 
-              </div>
-              <div class="col-6"  style="background-color:#fcd2e6">
-                <h1 style="font-size:2.8vw"><strong> Literatura </strong></h1>
-              </div>
-              <div class="col-3"  style="background-color:#fcd2e6">
-                <h1><img class="img2" src="{% static 'images/images2.png' %}"  style="max-width:40%;height:auto;"></h1>
-              </div>
-            </div>
-          </div>
-          <br>
 
-          <div class="container-fluid">
+            <!--{% if user.is_authenticated  %}{% if user.is_staff %}-->
+            <br><br><br>
+            <br><br><br>
+            <br><br><br>
+          
+          <!--{% else %}{% endif %}{% else %}{% endif %} -->
+          <!--<a class="btn btn-primary" href="{% url 'listado_mangas' %}" style="float: right; font-size: 14px;">Editar Mangas <span class="glyphicon glyphicon-plus"></span></a>-->
 
 
-            {% if user.is_authenticated  %}{% if user.is_staff %}
-
-          <a class="btn btn-primary" href="{% url 'crear_mangas' %}" style="float: left; font-size: 14px;">Agregar Manga <span class="glyphicon glyphicon-plus"></span></a>
-          {% else %}{% endif %}{% else %}{% endif %} 
-          <a class="btn btn-primary" href="{% url 'listado_mangas' %}" style="float: right; font-size: 14px;">Editar Mangas <span class="glyphicon glyphicon-plus"></span></a>
-
-
-
-            <h1>Mangas Disponibles</h1>
+<!-- Esto era para mostrar pero el ivan se encarga de eso -->
+           <!-- <h1>Mangas Disponibles</h1>
             {% for m in manga %}
             <div class="row">
               <div class="col-lg-2">
@@ -56,7 +39,9 @@
             </div>
           </div>
             <br>
-            {% endfor %}
+            {% endfor %}-->
+            <a class="btn btn-primary" href="{% url 'nueva_receta' %}" style="float: left; font-size: 14px;">Agregar Receta <span class="glyphicon glyphicon-plus"></span></a>
+            <a class="btn btn-primary" href="{% url 'listado_mangas' %}" style="float: right; font-size: 14px;">Editar Mangas <span class="glyphicon glyphicon-plus"></span></a>
     </body>
 </html>
 {% endblock %}

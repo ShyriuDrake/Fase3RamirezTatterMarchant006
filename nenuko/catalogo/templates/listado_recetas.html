@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+<h2> Listado de Recetas </h2>
+
+    <table>
+        <tr>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp; Titulo &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th></th>
+            <th>Tipo &nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th></th>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Opciones</th>
+        </tr>
+
+            {% for r in receta %}
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{r.titulo}}</td>
+                <td></td>
+                <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td>{% for tipo in r.tipo.all %} {{ tipo }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                {% if user.is_authenticated  %}{% if user.is_staff %}
+                <th>
+                    <a href="{% url 'modificar_recetas' r.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Modificar</a>
+                    <a href="{% url 'eliminar_recetas' r.id %}">&nbsp;&nbsp;&nbsp;Eliminar</a>
+                </th>
+                {% else %}{% endif %}{% else %}{% endif %} 
+            </tr>
+            {%endfor%}
+    </table>        
+
+{% endblock %}
